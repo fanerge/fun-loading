@@ -1,0 +1,18 @@
+.header,.footer,.content {
+  text-align: center;
+  color: #fff;
+  background: rgba(16, 142, 233, 1);
+}
+.content {
+  background: #7dbcea;
+}
+.item {
+  height: 200px;
+  margin: 2px;
+  padding: 4px;
+  border: 1px solid #ccc;
+  background: #ccc;
+}
+.footer a {
+  color: #ccc;
+}
