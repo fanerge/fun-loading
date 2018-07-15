@@ -5,7 +5,7 @@ const stripe = [{
   paramName: 'show',
   paramDes: '是否显示',
   paramRequire: 'true',
-  paramDef: true
+  paramDef: '-'
 },
 {
   paramName: 'color',
@@ -20,8 +20,28 @@ const stripe = [{
   paramDef: '6'
 }];
 
+const ellipsis = [{
+  paramName: 'show',
+  paramDes: '是否显示',
+  paramRequire: 'true',
+  paramDef: '-'
+},
+  {
+    paramName: 'color',
+    paramDes: '字体颜色',
+    paramRequire: 'false',
+    paramDef: '#333'
+  },
+  {
+    paramName: 'fontSize',
+    paramDes: '字体大小',
+    paramRequire: 'true',
+    paramDef: '16px'
+  }];
+
 export default {
-  stripe
+  stripe,
+  ellipsis
 }
 
 
