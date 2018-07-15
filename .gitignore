@@ -7,7 +7,7 @@
 /.idea
 
 # production
-/dist
+# /dist
 
 # misc
 .DS_Store
