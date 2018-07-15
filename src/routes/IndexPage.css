@@ -4,14 +4,15 @@
   background: rgba(16, 142, 233, 1);
 }
 .content {
+  color: #333;
   background: #7dbcea;
 }
 .item {
-  height: 200px;
+  height: 300px;
   margin: 2px;
   padding: 4px;
   border: 1px solid #ccc;
-  background: #ccc;
+  background: #f4f4f4;
 }
 .footer a {
   color: #ccc;
