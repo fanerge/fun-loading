@@ -2,7 +2,10 @@ import { PureComponent } from 'react';
 import { connect } from 'dva';
 import styles from './IndexPage.css';
 import { Layout, Row, Col, Tabs, Icon, Select, Radio } from 'antd';
-import { StripeLoading } from '../components/loading';
+import {
+  StripeLoading,
+  EllipsisLoading
+} from '../components/loading';
 import ParamsTable from '../components/paramstable';
 import paramsConfig from '../params'
 
@@ -24,6 +27,11 @@ class IndexPage extends PureComponent {
     stripeObj : {
       number: 6,
       color: 'rgba(16, 142, 233, 1)',
+      show: true
+    },
+    ellipsisObj: {
+      fontSize : '40px',
+      color: 'red',
       show: true
     }
   }
@@ -58,11 +66,30 @@ class IndexPage extends PureComponent {
     })
   }
 
+  ellipsisFontSizeChange = (val) => {
+    this.setState({
+      ellipsisObj: {
+        ...this.state.ellipsisObj,
+        fontSize: val
+      }
+    })
+  }
+
+  ellipsisColorChange = (val) => {
+    this.setState({
+      ellipsisObj: {
+        ...this.state.ellipsisObj,
+        color: val
+      }
+    })
+  }
+
   render (){
     const links = linkList.map((item, index) => {
       return <a href={item.href} title={item.text} key={index}>{item.text}</a>
     })
     const stripeObj = this.state.stripeObj;
+    const ellipsisObj = this.state.ellipsisObj;
 
     return (<Layout>
       <Header className={styles.header}>fun-loading</Header>
@@ -71,7 +98,7 @@ class IndexPage extends PureComponent {
           <Col {...itemLayout}>
             <Tabs defaultActiveKey="1">
               <TabPane tab={<span><Icon type="area-chart" />演示</span>} key="1">
-                <div style={{height: '120px'}}>
+                <div>
                   <StripeLoading number={stripeObj.number} color={stripeObj.color} show={stripeObj.show} />
                 </div>
                 <Row>
@@ -118,6 +145,44 @@ class IndexPage extends PureComponent {
             </Tabs>
           </Col>
           <Col {...itemLayout}>
+            <Tabs defaultActiveKey="1">
+              <TabPane tab={<span><Icon type="area-chart" />演示</span>} key="1">
+                <div>
+                  <EllipsisLoading fontSize={ellipsisObj.fontSize} show={ellipsisObj.show} color={ellipsisObj.color}>loading</EllipsisLoading>
+                </div>
+                <Row style={{marginTop: '30px'}}>
+                  <Col span="6">
+                    字体大小：
+                  </Col>
+                  <Col>
+                    <Select defaultValue="40px" style={{ width: 120 }} onChange={this.ellipsisFontSizeChange}>
+                      <Option value="12px">12px</Option>
+                      <Option value="20px">20px</Option>
+                      <Option value="40px">40px</Option>
+                      <Option value="60px">60px</Option>
+                    </Select>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col span="6">
+                    字体颜色：
+                  </Col>
+                  <Col>
+                    <Select defaultValue="#333" style={{ width: 120 }} onChange={this.ellipsisColorChange}>
+                      <Option value="red">red</Option>
+                      <Option value="green">green</Option>
+                      <Option value="blue">blue</Option>
+                      <Option value="#333">#333</Option>
+                    </Select>
+                  </Col>
+                </Row>
+              </TabPane>
+              <TabPane tab={<span><Icon type="setting" />说明</span>} key="2">
+                <h3>组件使用方法</h3>
+                <pre>&lt;EllipsisLoading fontSize={ellipsisObj.fontSize} show={ellipsisObj.show} &gt; loading &lt;/EllipsisLoading &gt;</pre>
+                <ParamsTable items = {paramsConfig.ellipsis} />
+              </TabPane>
+            </Tabs>
           </Col>
         </Row>
       </Content>
