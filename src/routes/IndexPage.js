@@ -4,7 +4,9 @@ import styles from './IndexPage.css';
 import { Layout, Row, Col, Tabs, Icon, Select, Radio } from 'antd';
 import {
   StripeLoading,
-  EllipsisLoading
+  EllipsisLoading,
+  TransformLoading,
+  FlippingLoading
 } from '../components/loading';
 import ParamsTable from '../components/paramstable';
 import paramsConfig from '../params'
@@ -33,6 +35,15 @@ class IndexPage extends PureComponent {
       fontSize : '40px',
       color: 'red',
       show: true
+    },
+    transformObj: {
+      time: '1s',
+      show: true
+    },
+    flippingObj: {
+      time: '1.2s',
+      show: true,
+      color: 'rgba(16, 142, 233, 1)'
     }
   }
 
@@ -84,12 +95,41 @@ class IndexPage extends PureComponent {
     })
   }
 
+  tranformTimrChange = (val) => {
+    this.setState({
+      transformObj: {
+        ...this.state.transformObj,
+        time: val
+      }
+    })
+  }
+
+  flippingTimeChange = (val) => {
+    this.setState({
+      flippingObj: {
+        ...this.state.flippingObj,
+        time: val
+      }
+    })
+  }
+
+  flippingColorChange = (val) => {
+    this.setState({
+      flippingObj: {
+        ...this.state.flippingObj,
+        color: val
+      }
+    })
+  }
+
   render (){
     const links = linkList.map((item, index) => {
       return <a href={item.href} title={item.text} key={index}>{item.text}</a>
     })
     const stripeObj = this.state.stripeObj;
     const ellipsisObj = this.state.ellipsisObj;
+    const transformObj = this.state.transformObj;
+    const flippingObj = this.state.flippingObj;
 
     return (<Layout>
       <Header className={styles.header}>fun-loading</Header>
@@ -181,6 +221,70 @@ class IndexPage extends PureComponent {
                 <h3>组件使用方法</h3>
                 <pre>&lt;EllipsisLoading fontSize={ellipsisObj.fontSize} show={ellipsisObj.show} &gt; loading &lt;/EllipsisLoading &gt;</pre>
                 <ParamsTable items = {paramsConfig.ellipsis} />
+              </TabPane>
+            </Tabs>
+          </Col>
+          <Col {...itemLayout}>
+          <Tabs defaultActiveKey="1">
+            <TabPane tab={<span><Icon type="area-chart" />演示</span>} key="1">
+              <div>
+                <TransformLoading show={transformObj.show} time={transformObj.time} />
+              </div>
+              <Row style={{marginTop: '60px'}}>
+                <Col span="6">
+                  动画周期：
+                </Col>
+                <Col>
+                  <Select defaultValue="1s" style={{ width: 120 }} onChange={this.tranformTimrChange}>
+                    <Option value=".5s">0.5s</Option>
+                    <Option value="1s">1s</Option>
+                    <Option value="2s">2s</Option>
+                  </Select>
+                </Col>
+              </Row>
+            </TabPane>
+            <TabPane tab={<span><Icon type="setting" />说明</span>} key="2">
+              <h3>组件使用方法</h3>
+              <pre>&lt;TransformLoading show="true" time={transformObj.time}&gt;loading&lt;/TransformLoading&gt;</pre>
+              <ParamsTable items = {paramsConfig.transform} />
+            </TabPane>
+          </Tabs>
+        </Col>
+          <Col {...itemLayout}>
+            <Tabs defaultActiveKey="1">
+              <TabPane tab={<span><Icon type="area-chart" />演示</span>} key="1">
+                <div>
+                  <FlippingLoading show={flippingObj.show} time={flippingObj.time} color={flippingObj.color} />
+                </div>
+                <Row style={{marginTop: '60px'}}>
+                  <Col span="6">
+                    动画周期：
+                  </Col>
+                  <Col>
+                    <Select defaultValue="1.2s" style={{ width: 120 }} onChange={this.flippingTimeChange}>
+                      <Option value=".5s">0.5s</Option>
+                      <Option value="1.2s">1.2s</Option>
+                      <Option value="2s">2s</Option>
+                    </Select>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col span="6">
+                    动画周期：
+                  </Col>
+                  <Col>
+                    <Select defaultValue="rgba(16, 142, 233, 1);" style={{ width: 120 }} onChange={this.flippingColorChange}>
+                      <Option value="rgba(16, 142, 233, 1)">rgba(16, 142, 233, 1)</Option>
+                      <Option value="yellowgreen">yellowgreen</Option>
+                      <Option value="#65f8ce">#65f8ce</Option>
+                    </Select>
+                  </Col>
+                </Row>
+              </TabPane>
+              <TabPane tab={<span><Icon type="setting" />说明</span>} key="2">
+                <h3>组件使用方法</h3>
+                <pre>&lt;FlippingLoading show="true" time={flippingObj.time} color={flippingObj.color} /&gt;</pre>
+                <ParamsTable items = {paramsConfig.flipping} />
               </TabPane>
             </Tabs>
           </Col>

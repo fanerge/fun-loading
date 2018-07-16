@@ -1,12 +1,15 @@
 /**
  * Created by Administrator on 2018/7/15.
  */
-const stripe = [{
+  const show = {
   paramName: 'show',
   paramDes: '是否显示',
   paramRequire: 'true',
   paramDef: '-'
-},
+}
+
+const stripe = [
+  show,
 {
   paramName: 'color',
   paramDes: '条状颜色',
@@ -20,12 +23,8 @@ const stripe = [{
   paramDef: '6'
 }];
 
-const ellipsis = [{
-  paramName: 'show',
-  paramDes: '是否显示',
-  paramRequire: 'true',
-  paramDef: '-'
-},
+const ellipsis = [
+  show,
   {
     paramName: 'color',
     paramDes: '字体颜色',
@@ -39,9 +38,52 @@ const ellipsis = [{
     paramDef: '16px'
   }];
 
+const transform = [
+  show,
+  {
+    paramName: 'time',
+    paramDes: '动画周期',
+    paramRequire: 'false',
+    paramDef: '1s'
+  }]
+
+const flipping = [
+  show,
+  {
+    paramName: 'time',
+    paramDes: '动画周期',
+    paramRequire: 'false',
+    paramDef: '1s'
+  },
+  {
+    paramName: 'color',
+    paramDes: '动画颜色',
+    paramRequire: 'false',
+    paramDef: 'rgba(16, 142, 233, 1)'
+  }
+]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 export default {
   stripe,
-  ellipsis
+  ellipsis,
+  transform,
+  flipping
 }
 
 
