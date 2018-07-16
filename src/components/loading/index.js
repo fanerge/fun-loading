@@ -3,8 +3,12 @@
  */
 import StripeLoading from '../stripeLoading'
 import EllipsisLoading from '../ellipsisLoading'
+import TransformLoading from '../transformLoading'
+import FlippingLoading from '../flippingLoading'
 
 export {
   StripeLoading,
-  EllipsisLoading
+  EllipsisLoading,
+  TransformLoading,
+  FlippingLoading
 }
