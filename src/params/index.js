@@ -44,7 +44,7 @@ const transform = [
     paramName: 'time',
     paramDes: '动画周期',
     paramRequire: 'false',
-    paramDef: '1s'
+    paramDef: 1
   }]
 
 const flipping = [
@@ -53,7 +53,7 @@ const flipping = [
     paramName: 'time',
     paramDes: '动画周期',
     paramRequire: 'false',
-    paramDef: '1s'
+    paramDef: 1
   },
   {
     paramName: 'color',
@@ -69,7 +69,7 @@ const circle = [
     paramName: 'time',
     paramDes: '动画周期',
     paramRequire: 'false',
-    paramDef: '2s'
+    paramDef: 2
   },
   {
     paramName: 'color',
@@ -79,7 +79,21 @@ const circle = [
   }
 ]
 
-
+const roll = [
+  show,
+  {
+    paramName: 'time',
+    paramDes: '动画周期',
+    paramRequire: 'false',
+    paramDef: 2
+  },
+  {
+    paramName: 'color',
+    paramDes: '动画颜色',
+    paramRequire: 'false',
+    paramDef: 'rgba(16, 142, 233, 1)'
+  }
+]
 
 
 
@@ -98,7 +112,8 @@ export default {
   ellipsis,
   transform,
   flipping,
-  circle
+  circle,
+  roll
 }
 
 

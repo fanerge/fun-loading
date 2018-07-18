@@ -7,7 +7,8 @@ import {
   EllipsisLoading,
   TransformLoading,
   FlippingLoading,
-  CircleLoading
+  CircleLoading,
+  RollLoading
 } from '../components/loading';
 import ParamsTable from '../components/paramstable';
 import paramsConfig from '../params'
@@ -38,16 +39,21 @@ class IndexPage extends PureComponent {
       show: true
     },
     transformObj: {
-      time: '1s',
+      time: 1,
       show: true
     },
     flippingObj: {
-      time: '1.2s',
+      time: 1.2,
       show: true,
       color: 'rgba(16, 142, 233, 1)'
     },
     circleObj: {
-      time: '2s',
+      time: 2,
+      show: true,
+      color: 'rgba(16, 142, 233, 1)'
+    },
+    rollObj: {
+      time: 2,
       show: true,
       color: 'rgba(16, 142, 233, 1)'
     }
@@ -131,7 +137,7 @@ class IndexPage extends PureComponent {
   circleTimeChange = (val) => {
     this.setState({
       circleObj: {
-        ...this.state. circleObj,
+        ...this.state.circleObj,
         time: val
       }
     })
@@ -140,7 +146,25 @@ class IndexPage extends PureComponent {
   circleColorChange = (val) => {
     this.setState({
       circleObj: {
-        ...this.state. circleObj,
+        ...this.state.circleObj,
+        color: val
+      }
+    })
+  }
+
+  rollTimeChange = (val) => {
+    this.setState({
+      rollObj: {
+        ...this.state.rollObj,
+        time: val
+      }
+    })
+  }
+
+  rollColorChange = (val) => {
+    this.setState({
+      rollObj: {
+        ...this.state.rollObj,
         color: val
       }
     })
@@ -155,6 +179,7 @@ class IndexPage extends PureComponent {
     const transformObj = this.state.transformObj;
     const flippingObj = this.state.flippingObj;
     const circleObj = this.state.circleObj;
+    const rollObj = this.state.rollObj;
 
     return (<Layout>
       <Header className={styles.header}>fun-loading</Header>
@@ -260,10 +285,10 @@ class IndexPage extends PureComponent {
                   动画周期：
                 </Col>
                 <Col>
-                  <Select defaultValue="1s" style={{ width: 120 }} onChange={this.tranformTimrChange}>
-                    <Option value=".5s">0.5s</Option>
-                    <Option value="1s">1s</Option>
-                    <Option value="2s">2s</Option>
+                  <Select defaultValue={1} style={{ width: 120 }} onChange={this.tranformTimrChange}>
+                    <Option value={0.5}>0.5s</Option>
+                    <Option value={1}>1s</Option>
+                    <Option value={2}>2s</Option>
                   </Select>
                 </Col>
               </Row>
@@ -286,10 +311,10 @@ class IndexPage extends PureComponent {
                     动画周期：
                   </Col>
                   <Col>
-                    <Select defaultValue="1.2s" style={{ width: 120 }} onChange={this.flippingTimeChange}>
-                      <Option value=".5s">0.5s</Option>
-                      <Option value="1.2s">1.2s</Option>
-                      <Option value="2s">2s</Option>
+                    <Select defaultValue={1.2} style={{ width: 120 }} onChange={this.flippingTimeChange}>
+                      <Option value={0.5}>0.5s</Option>
+                      <Option value={1.2}>1.2s</Option>
+                      <Option value={2}>2s</Option>
                     </Select>
                   </Col>
                 </Row>
@@ -324,10 +349,10 @@ class IndexPage extends PureComponent {
                     动画周期：
                   </Col>
                   <Col>
-                    <Select defaultValue="2s" style={{ width: 120 }} onChange={this. circleTimeChange}>
-                      <Option value="1.5s">1.5s</Option>
-                      <Option value="2s">2s</Option>
-                      <Option value="2.5s">2.5s</Option>
+                    <Select defaultValue={2} style={{ width: 120 }} onChange={this. circleTimeChange}>
+                      <Option value={1.5}>1.5s</Option>
+                      <Option value={2}>2s</Option>
+                      <Option value={2.5}>2.5s</Option>
                     </Select>
                   </Col>
                 </Row>
@@ -355,17 +380,17 @@ class IndexPage extends PureComponent {
             <Tabs defaultActiveKey="1">
               <TabPane tab={<span><Icon type="area-chart" />演示</span>} key="1">
                 <div>
-                  <CircleLoading show={circleObj.show} time={circleObj.time} color={circleObj.color} />
+                  <RollLoading show={rollObj.show} time={rollObj.time} color={rollObj.color} />
                 </div>
                 <Row style={{marginTop: '60px'}}>
                   <Col span="6">
                     动画周期：
                   </Col>
                   <Col>
-                    <Select defaultValue="2s" style={{ width: 120 }} onChange={this. circleTimeChange}>
-                      <Option value="1.5s">1.5s</Option>
-                      <Option value="2s">2s</Option>
-                      <Option value="2.5s">2.5s</Option>
+                    <Select defaultValue={2} style={{ width: 120 }} onChange={this.rollTimeChange}>
+                      <Option value={1.5}>1.5s</Option>
+                      <Option value={2}>2s</Option>
+                      <Option value={2.5}>2.5s</Option>
                     </Select>
                   </Col>
                 </Row>
@@ -374,7 +399,7 @@ class IndexPage extends PureComponent {
                     动画周期：
                   </Col>
                   <Col>
-                    <Select defaultValue="rgba(16, 142, 233, 1);" style={{ width: 120 }} onChange={this. circleColorChange}>
+                    <Select defaultValue="rgba(16, 142, 233, 1);" style={{ width: 120 }} onChange={this. rollColorChange}>
                       <Option value="rgba(16, 142, 233, 1)">rgba(16, 142, 233, 1)</Option>
                       <Option value="yellowgreen">yellowgreen</Option>
                       <Option value="#65f8ce">#65f8ce</Option>
@@ -384,15 +409,15 @@ class IndexPage extends PureComponent {
               </TabPane>
               <TabPane tab={<span><Icon type="setting" />说明</span>} key="2">
                 <h3>组件使用方法</h3>
-                <pre>&lt; CircleLoading show="true" time={circleObj.time} color={circleObj.color} /&gt;</pre>
-                <ParamsTable items = {paramsConfig.circle} />
+                <pre>&lt;RollLoading show="true" time={rollObj.time} color={rollObj.color} /&gt;</pre>
+                <ParamsTable items = {paramsConfig.roll} />
               </TabPane>
             </Tabs>
           </Col>
         </Row>
       </Content>
       <Footer className={styles.footer}>
-        <p>部分内容参考一列连接，在此感谢：</p>
+        <p>部分内容参考下列连接，在此感谢：</p>
         {links}
       </Footer>
     </Layout>);

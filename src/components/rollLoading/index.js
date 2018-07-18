@@ -15,9 +15,9 @@ const CircleLoading = (props) => {
     <div className={styles.container}
          style={{'display': isShow ? 'block' : 'none' }}>
       <div className={styles.content}>
-        <div className={styles.circle}>
-          <div className={styles['circle-bounce1']} style={{animationDuration: time, backgroundColor: color}}></div>
-          <div className={styles['circle-bounce2']} style={{animationDuration: time, backgroundColor: color, animationDelay: delay}}></div>
+        <div className={styles.roll}>
+          <div className={styles.cube1} style={{animationDuration: time, backgroundColor: color}}></div>
+          <div className={styles.cube2} style={{animationDuration: time, backgroundColor: color, animationDelay: delay}}></div>
         </div>
       </div>
     </div>

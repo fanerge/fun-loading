@@ -6,11 +6,13 @@ import EllipsisLoading from '../ellipsisLoading'
 import TransformLoading from '../transformLoading'
 import FlippingLoading from '../flippingLoading'
 import CircleLoading from '../circleLoading'
+import RollLoading from '../rollLoading'
 
 export {
   StripeLoading,
   EllipsisLoading,
   TransformLoading,
   FlippingLoading,
-  CircleLoading
+  CircleLoading,
+  RollLoading
 }

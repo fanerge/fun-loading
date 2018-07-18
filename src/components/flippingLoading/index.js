@@ -7,7 +7,7 @@ import styles from './index.css';
 
 const TransformLoading = (props) => {
   const isShow = props.show;
-  const time = props.time || '1s';
+  const time = `${props.time}s` || '1s';
   const color = props.color || 'rgba(16, 142, 233, 1)';
 
   return (
@@ -21,7 +21,7 @@ const TransformLoading = (props) => {
 };
 
 TransformLoading.propTypes = {
-  time: PropTypes.string,
+  time: PropTypes.number,
   show: PropTypes.bool.isRequired
 };
 

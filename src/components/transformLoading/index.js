@@ -5,22 +5,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './index.css';
 
-const TransformLoading = (props) => {
-  const isShow = props.show;
-  const time = props.time || '1s';
+const TransformLoading = ({show, time}) => {
 
   return (
     <div className={styles.container}
-         style={{'display': isShow ? 'block' : 'none' }}>
+         style={{'display': show ? 'block' : 'none' }}>
       <div className={styles.content}>
-        <p className={styles.transform} style={{animationDuration: time}}></p>
+        <p className={styles.transform} style={{animationDuration: `${time}s`}}></p>
       </div>
     </div>
   );
 };
 
 TransformLoading.propTypes = {
-  time: PropTypes.string,
+  time: PropTypes.number,
   show: PropTypes.bool.isRequired
 };
 
