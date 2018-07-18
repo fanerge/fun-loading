@@ -63,7 +63,21 @@ const flipping = [
   }
 ]
 
-
+const circle = [
+  show,
+  {
+    paramName: 'time',
+    paramDes: '动画周期',
+    paramRequire: 'false',
+    paramDef: '2s'
+  },
+  {
+    paramName: 'color',
+    paramDes: '动画颜色',
+    paramRequire: 'false',
+    paramDef: 'rgba(16, 142, 233, 1)'
+  }
+]
 
 
 
@@ -83,7 +97,8 @@ export default {
   stripe,
   ellipsis,
   transform,
-  flipping
+  flipping,
+  circle
 }
 
 

@@ -16,11 +16,11 @@
 }
 .transform {
   display: block;
-  width: 4em;
-  height: 4em;
+  width: 40px;
+  height: 40px;
   text-align: center;
-  margin: 0 auto 1em;
-  border: 1.5em solid;
+  margin: 0 auto 10px;
+  border: 15px solid;
   color: yellowgreen;
   box-sizing: border-box;
   animation: transformloading 1s;
@@ -37,7 +37,7 @@
   }
   50% {
     border-radius: 50%;
-    border-width: .3em;
+    border-width: 3px;
   }
   66% {
     color: deeppink;

@@ -6,7 +6,8 @@ import {
   StripeLoading,
   EllipsisLoading,
   TransformLoading,
-  FlippingLoading
+  FlippingLoading,
+  CircleLoading
 } from '../components/loading';
 import ParamsTable from '../components/paramstable';
 import paramsConfig from '../params'
@@ -42,6 +43,11 @@ class IndexPage extends PureComponent {
     },
     flippingObj: {
       time: '1.2s',
+      show: true,
+      color: 'rgba(16, 142, 233, 1)'
+    },
+    circleObj: {
+      time: '2s',
       show: true,
       color: 'rgba(16, 142, 233, 1)'
     }
@@ -122,6 +128,24 @@ class IndexPage extends PureComponent {
     })
   }
 
+  circleTimeChange = (val) => {
+    this.setState({
+      circleObj: {
+        ...this.state. circleObj,
+        time: val
+      }
+    })
+  }
+
+  circleColorChange = (val) => {
+    this.setState({
+      circleObj: {
+        ...this.state. circleObj,
+        color: val
+      }
+    })
+  }
+
   render (){
     const links = linkList.map((item, index) => {
       return <a href={item.href} title={item.text} key={index}>{item.text}</a>
@@ -130,6 +154,7 @@ class IndexPage extends PureComponent {
     const ellipsisObj = this.state.ellipsisObj;
     const transformObj = this.state.transformObj;
     const flippingObj = this.state.flippingObj;
+    const circleObj = this.state.circleObj;
 
     return (<Layout>
       <Header className={styles.header}>fun-loading</Header>
@@ -285,6 +310,82 @@ class IndexPage extends PureComponent {
                 <h3>组件使用方法</h3>
                 <pre>&lt;FlippingLoading show="true" time={flippingObj.time} color={flippingObj.color} /&gt;</pre>
                 <ParamsTable items = {paramsConfig.flipping} />
+              </TabPane>
+            </Tabs>
+          </Col>
+          <Col {...itemLayout}>
+            <Tabs defaultActiveKey="1">
+              <TabPane tab={<span><Icon type="area-chart" />演示</span>} key="1">
+                <div>
+                  <CircleLoading show={circleObj.show} time={circleObj.time} color={circleObj.color} />
+                </div>
+                <Row style={{marginTop: '60px'}}>
+                  <Col span="6">
+                    动画周期：
+                  </Col>
+                  <Col>
+                    <Select defaultValue="2s" style={{ width: 120 }} onChange={this. circleTimeChange}>
+                      <Option value="1.5s">1.5s</Option>
+                      <Option value="2s">2s</Option>
+                      <Option value="2.5s">2.5s</Option>
+                    </Select>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col span="6">
+                    动画周期：
+                  </Col>
+                  <Col>
+                    <Select defaultValue="rgba(16, 142, 233, 1);" style={{ width: 120 }} onChange={this. circleColorChange}>
+                      <Option value="rgba(16, 142, 233, 1)">rgba(16, 142, 233, 1)</Option>
+                      <Option value="yellowgreen">yellowgreen</Option>
+                      <Option value="#65f8ce">#65f8ce</Option>
+                    </Select>
+                  </Col>
+                </Row>
+              </TabPane>
+              <TabPane tab={<span><Icon type="setting" />说明</span>} key="2">
+                <h3>组件使用方法</h3>
+                <pre>&lt; CircleLoading show="true" time={circleObj.time} color={circleObj.color} /&gt;</pre>
+                <ParamsTable items = {paramsConfig.circle} />
+              </TabPane>
+            </Tabs>
+          </Col>
+          <Col {...itemLayout}>
+            <Tabs defaultActiveKey="1">
+              <TabPane tab={<span><Icon type="area-chart" />演示</span>} key="1">
+                <div>
+                  <CircleLoading show={circleObj.show} time={circleObj.time} color={circleObj.color} />
+                </div>
+                <Row style={{marginTop: '60px'}}>
+                  <Col span="6">
+                    动画周期：
+                  </Col>
+                  <Col>
+                    <Select defaultValue="2s" style={{ width: 120 }} onChange={this. circleTimeChange}>
+                      <Option value="1.5s">1.5s</Option>
+                      <Option value="2s">2s</Option>
+                      <Option value="2.5s">2.5s</Option>
+                    </Select>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col span="6">
+                    动画周期：
+                  </Col>
+                  <Col>
+                    <Select defaultValue="rgba(16, 142, 233, 1);" style={{ width: 120 }} onChange={this. circleColorChange}>
+                      <Option value="rgba(16, 142, 233, 1)">rgba(16, 142, 233, 1)</Option>
+                      <Option value="yellowgreen">yellowgreen</Option>
+                      <Option value="#65f8ce">#65f8ce</Option>
+                    </Select>
+                  </Col>
+                </Row>
+              </TabPane>
+              <TabPane tab={<span><Icon type="setting" />说明</span>} key="2">
+                <h3>组件使用方法</h3>
+                <pre>&lt; CircleLoading show="true" time={circleObj.time} color={circleObj.color} /&gt;</pre>
+                <ParamsTable items = {paramsConfig.circle} />
               </TabPane>
             </Tabs>
           </Col>
