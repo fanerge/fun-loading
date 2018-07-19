@@ -95,7 +95,21 @@ const roll = [
   }
 ]
 
-
+const point = [
+  show,
+  {
+    paramName: 'time',
+    paramDes: '动画周期',
+    paramRequire: 'false',
+    paramDef: 1.5
+  },
+  {
+    paramName: 'color',
+    paramDes: '动画颜色',
+    paramRequire: 'false',
+    paramDef: 'rgba(16, 142, 233, 1)'
+  }
+]
 
 
 
@@ -113,7 +127,8 @@ export default {
   transform,
   flipping,
   circle,
-  roll
+  roll,
+  point
 }
 
 

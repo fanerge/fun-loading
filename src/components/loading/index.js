@@ -7,6 +7,7 @@ import TransformLoading from '../transformLoading'
 import FlippingLoading from '../flippingLoading'
 import CircleLoading from '../circleLoading'
 import RollLoading from '../rollLoading'
+import PointLoading from '../pointLoading'
 
 export {
   StripeLoading,
@@ -14,5 +15,6 @@ export {
   TransformLoading,
   FlippingLoading,
   CircleLoading,
-  RollLoading
+  RollLoading,
+  PointLoading
 }

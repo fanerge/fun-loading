@@ -1,0 +1,45 @@
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 30px;
+  /*GPU加速*/
+  transform: translateZ(0);
+}
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+.spinner {
+  margin: 0 auto;
+  width: 150px;
+  text-align: center;
+}
+.spinner > div {
+  width: 30px;
+  height: 30px;
+  background-color: rgba(16, 142, 233, 1);
+  border-radius: 100%;
+  display: inline-block;
+  animation: bouncedelay 1s infinite ease-in-out;
+  animation-fill-mode: both;
+}
+
+.spinner .circle1 {
+  animation-delay: -0.228s;
+}
+
+.spinner .circle2 {
+  animation-delay: -0.114s;
+}
+@keyframes bouncedelay {
+  0%, 80%, 100% {
+    transform: scale(0.0);
+  }
+  40% {
+      transform: scale(1.0);
+  }
+}
