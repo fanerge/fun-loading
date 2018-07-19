@@ -9,7 +9,8 @@ import {
   FlippingLoading,
   CircleLoading,
   RollLoading,
-  PointLoading
+  PointLoading,
+  SpinnerLoading
 } from '../components/loading';
 import ParamsTable from '../components/paramstable';
 import paramsConfig from '../params'
@@ -61,6 +62,12 @@ class IndexPage extends PureComponent {
     pointObj : {
       time: 1.5,
       color: 'rgba(16, 142, 233, 1)',
+      show: true
+    },
+    spinnerObj : {
+      time: 1.2,
+      color: 'rgba(16, 142, 233, 1)',
+      size: '20px',
       show: true
     }
   }
@@ -194,6 +201,33 @@ class IndexPage extends PureComponent {
     })
   }
 
+  spinnerColorChange = (val) => {
+    this.setState({
+      spinnerObj: {
+        ...this.state.spinnerObj,
+        color: val
+      }
+    })
+  }
+
+  spinnerSizeChange = (val) => {
+    this.setState({
+      spinnerObj: {
+        ...this.state.spinnerObj,
+        size: val
+      }
+    })
+  }
+
+  spinnerTimeChange = (val) => {
+    this.setState({
+      spinnerObj: {
+        ...this.state.spinnerObj,
+        time: val
+      }
+    })
+  }
+
   render (){
     const links = linkList.map((item, index) => {
       return <a href={item.href} title={item.text} key={index}>{item.text}</a>
@@ -205,6 +239,7 @@ class IndexPage extends PureComponent {
     const circleObj = this.state.circleObj;
     const rollObj = this.state.rollObj;
     const pointObj = this.state.pointObj;
+    const spinnerObj = this.state.spinnerObj;
 
     return (<Layout>
       <Header className={styles.header}>fun-loading</Header>
@@ -474,6 +509,56 @@ class IndexPage extends PureComponent {
                 <h3>组件使用方法</h3>
                 <pre>&lt;PointLoading show="true" time={pointObj.time} color={pointObj.color} /&gt;</pre>
                 <ParamsTable items = {paramsConfig.point} />
+              </TabPane>
+            </Tabs>
+          </Col>
+          <Col {...itemLayout}>
+            <Tabs defaultActiveKey="1">
+              <TabPane tab={<span><Icon type="area-chart" />演示</span>} key="1">
+                <div>
+                  <SpinnerLoading show={spinnerObj.show} time={spinnerObj.time} color={spinnerObj.color} size={spinnerObj.size}/>
+                </div>
+                <Row style={{marginTop: '60px'}}>
+                  <Col span="6">
+                    动画周期：
+                  </Col>
+                  <Col>
+                    <Select defaultValue="20px" style={{ width: 120 }} onChange={this.spinnerSizeChange}>
+                      <Option value="20px">20px</Option>
+                      <Option value="40px">40px</Option>
+                      <Option value="60px">60px</Option>
+                    </Select>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col span="6">
+                    动画颜色：
+                  </Col>
+                  <Col>
+                    <Select defaultValue="rgba(16, 142, 233, 1);" style={{ width: 120 }} onChange={this.spinnerColorChange}>
+                      <Option value="rgba(16, 142, 233, 1)">rgba(16, 142, 233, 1)</Option>
+                      <Option value="yellowgreen">yellowgreen</Option>
+                      <Option value="#65f8ce">#65f8ce</Option>
+                    </Select>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col span="6">
+                    动画周期：
+                  </Col>
+                  <Col>
+                    <Select defaultValue={1.5} style={{ width: 120 }} onChange={this.spinnerTimeChange}>
+                      <Option value={1.5}>1.5s</Option>
+                      <Option value={2}>2s</Option>
+                      <Option value={2.5}>2.5s</Option>
+                    </Select>
+                  </Col>
+                </Row>
+              </TabPane>
+              <TabPane tab={<span><Icon type="setting" />说明</span>} key="2">
+                <h3>组件使用方法</h3>
+                <pre>&lt;SpinnerLoading show="true" time={spinnerObj.time} color={spinnerObj.color} size={spinnerObj.size} /&gt;</pre>
+                <ParamsTable items = {paramsConfig.spinner} />
               </TabPane>
             </Tabs>
           </Col>

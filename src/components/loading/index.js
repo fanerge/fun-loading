@@ -8,6 +8,8 @@ import FlippingLoading from '../flippingLoading'
 import CircleLoading from '../circleLoading'
 import RollLoading from '../rollLoading'
 import PointLoading from '../pointLoading'
+import SpinnerLoading from '../spinnerLoading'
+
 
 export {
   StripeLoading,
@@ -16,5 +18,6 @@ export {
   FlippingLoading,
   CircleLoading,
   RollLoading,
-  PointLoading
+  PointLoading,
+  SpinnerLoading
 }
