@@ -13,12 +13,12 @@ const StripeLoading = (props) => {
   // 动画周期
   const durationTime = 1.2 * number / 5;
   // 动画是否显示执行
-  const isShow = props.show;
-  // 动态创建加载条数
-  const childs = Array(number).fill('*').map((item, index) => {
-    const classIndex = `rect${index+1}`;
-    return <div className={styles[classIndex]} style={{background: bgColor, 'animationDuration': `${durationTime}s`, 'animationPlayState': isShow ? 'running' : 'paused' }} key={index}></div>
-  })
+  const isShow = props.show || true;
+
+  const childs = Array(number).fill(1).map((item, index) => {
+      let classIndex = `rect${index+1}`
+      return <div className={styles[classIndex]} style={{background: bgColor, 'animationDuration': `${durationTime}s` }} key={index}></div>
+    })
 
   return (
     <div className={styles.container}

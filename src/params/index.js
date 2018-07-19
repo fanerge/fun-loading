@@ -44,7 +44,7 @@ const transform = [
     paramName: 'time',
     paramDes: '动画周期',
     paramRequire: 'false',
-    paramDef: '1s'
+    paramDef: 1
   }]
 
 const flipping = [
@@ -53,7 +53,55 @@ const flipping = [
     paramName: 'time',
     paramDes: '动画周期',
     paramRequire: 'false',
-    paramDef: '1s'
+    paramDef: 1
+  },
+  {
+    paramName: 'color',
+    paramDes: '动画颜色',
+    paramRequire: 'false',
+    paramDef: 'rgba(16, 142, 233, 1)'
+  }
+]
+
+const circle = [
+  show,
+  {
+    paramName: 'time',
+    paramDes: '动画周期',
+    paramRequire: 'false',
+    paramDef: 2
+  },
+  {
+    paramName: 'color',
+    paramDes: '动画颜色',
+    paramRequire: 'false',
+    paramDef: 'rgba(16, 142, 233, 1)'
+  }
+]
+
+const roll = [
+  show,
+  {
+    paramName: 'time',
+    paramDes: '动画周期',
+    paramRequire: 'false',
+    paramDef: 2
+  },
+  {
+    paramName: 'color',
+    paramDes: '动画颜色',
+    paramRequire: 'false',
+    paramDef: 'rgba(16, 142, 233, 1)'
+  }
+]
+
+const point = [
+  show,
+  {
+    paramName: 'time',
+    paramDes: '动画周期',
+    paramRequire: 'false',
+    paramDef: 1.5
   },
   {
     paramName: 'color',
@@ -73,17 +121,14 @@ const flipping = [
 
 
 
-
-
-
-
-
-
 export default {
   stripe,
   ellipsis,
   transform,
-  flipping
+  flipping,
+  circle,
+  roll,
+  point
 }
 
 
