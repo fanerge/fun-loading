@@ -5,10 +5,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './index.css';
 
-const CircleLoading = (props) => {
+const PointLoading = (props) => {
   const isShow = props.show;
-  const time = `${props.time}s` || '1.5s';
-  const color = props.color || 'rgba(16, 142, 233, 1)';
+  const time = `${props.time}s`;
+  const color = props.color;
 
   return (
     <div className={styles.container}
@@ -35,10 +35,15 @@ const CircleLoading = (props) => {
   );
 };
 
-CircleLoading.propTypes = {
+PointLoading.propTypes = {
   time: PropTypes.number,
   color: PropTypes.string,
   show: PropTypes.bool.isRequired
 };
 
-export default CircleLoading;
+PointLoading.defaultProps = {
+  time: 1.5,
+  color: 'rgba(16, 142, 233, 1)'
+};
+
+export default PointLoading;

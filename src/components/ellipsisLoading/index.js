@@ -7,8 +7,8 @@ import styles from './index.css';
 
 const EllipsisLoading = (props) => {
   const isShow = props.show;
-  const fontSize = props.fontSize || '16px';
-  const color = props.color || '#333';
+  const fontSize = props.fontSize;
+  const color = props.color;
   return (
     <div className={styles.container}
          style={{'display': isShow ? 'block' : 'none' }}>
@@ -22,6 +22,11 @@ const EllipsisLoading = (props) => {
 EllipsisLoading.propTypes = {
   fontSize: PropTypes.string,
   show: PropTypes.bool.isRequired
+};
+
+EllipsisLoading.defaultProps = {
+  fontSize:  '16px',
+  color: '#333'
 };
 
 export default EllipsisLoading;

@@ -22,4 +22,8 @@ TransformLoading.propTypes = {
   show: PropTypes.bool.isRequired
 };
 
+TransformLoading.defaultProps = {
+  time: 1
+}
+
 export default TransformLoading;
