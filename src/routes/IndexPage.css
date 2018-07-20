@@ -1,10 +1,17 @@
 .header,.footer,.content {
-  text-align: center;
   color: #fff;
-  background: rgba(16, 142, 233, 1);
+}
+.header {
+  background: #fff;
+  margin-bottom: 3px;
+}
+.title {
+  float: left;
+  display: inline-block;
 }
 .content {
   color: #333;
+  text-align: center;
   background: #7dbcea;
 }
 .item {
@@ -13,6 +20,10 @@
   margin-top: 4px;
   border: 6px solid #7dbcea;
   background: #f4f4f4;
+}
+.footer {
+  text-align: center;
+  background: rgba(16, 142, 233, 1);
 }
 .footer a {
   color: #ccc;

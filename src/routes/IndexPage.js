@@ -1,7 +1,7 @@
 import { PureComponent } from 'react';
 import { connect } from 'dva';
 import styles from './IndexPage.css';
-import { Layout, Row, Col, Tabs, Icon, Select, Radio } from 'antd';
+import { Layout, Menu, Row, Col, Tabs, Icon, Select, Radio } from 'antd';
 import {
   StripeLoading,
   EllipsisLoading,
@@ -12,15 +12,30 @@ import {
   PointLoading,
   SpinnerLoading
 } from '../components/loading';
+import CommonHeader from '../components/commonHeader';
 import ParamsTable from '../components/paramstable';
 import paramsConfig from '../params'
 
-const { Header, Footer, Content } = Layout;
+const { Footer, Content } = Layout;
 const TabPane = Tabs.TabPane;
 const Option = Select.Option;
 const RadioGroup = Radio.Group;
 const itemLayout = {
-  span: 6,
+  xs: {
+    span: 24
+  },
+  sm: {
+    span: 24
+  },
+  md: {
+    span: 12
+  },
+  lg: {
+    span: 8
+  },
+  xl: {
+    span: 6
+  },
   className: styles.item
 }
 const linkList = [{
@@ -242,7 +257,7 @@ class IndexPage extends PureComponent {
     const spinnerObj = this.state.spinnerObj;
 
     return (<Layout>
-      <Header className={styles.header}>fun-loading</Header>
+      <CommonHeader index="1"/>
       <Content className={styles.content}>
         <Row style={{padding: '4px'}}>
           <Col {...itemLayout}>
