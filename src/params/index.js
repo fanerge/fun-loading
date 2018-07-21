@@ -134,9 +134,31 @@ const spinner = [
   }
 ]
 
+const line = [
+  show,
+  {
+    paramName: 'time',
+    paramDes: '动画周期',
+    paramRequire: 'false',
+    paramDef: 2
+  },
+  {
+    paramName: 'number',
+    paramDes: '线条数量',
+    paramRequire: 'false',
+    paramDef: '5'
+  }
+]
 
-
-
+const rotate = [
+  show,
+  {
+    paramName: 'number',
+    paramDes: '动画大小',
+    paramRequire: 'false',
+    paramDef: '16px'
+  }
+]
 
 
 
@@ -149,7 +171,9 @@ export default {
   circle,
   roll,
   point,
-  spinner
+  spinner,
+  line,
+  rotate
 }
 
 

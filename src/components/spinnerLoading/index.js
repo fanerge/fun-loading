@@ -11,7 +11,7 @@ const SpinnerLoading = (props) => {
   const delayTime = (props.time / 12).toFixed(2);
   const color = props.color;
   const size = props.size;
-  const minSize = `${(parseInt(size) * 0.3).toFixed(2)}px`;
+  const minSize = `${(parseInt(size, 10) * 0.3).toFixed(2)}px`;
 
   return (
     <div className={styles.container}

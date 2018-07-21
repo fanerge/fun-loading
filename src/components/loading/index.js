@@ -9,7 +9,8 @@ import CircleLoading from '../circleLoading'
 import RollLoading from '../rollLoading'
 import PointLoading from '../pointLoading'
 import SpinnerLoading from '../spinnerLoading'
-
+import LineLoading from '../lineLoading'
+import RotateLoading from '../rotateLoading'
 
 export {
   StripeLoading,
@@ -19,5 +20,7 @@ export {
   CircleLoading,
   RollLoading,
   PointLoading,
-  SpinnerLoading
+  SpinnerLoading,
+  LineLoading,
+  RotateLoading
 }
