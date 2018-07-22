@@ -1,0 +1,165 @@
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 100px;
+  /*GPU加速*/
+  transform: translateZ(0);
+}
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
+  width: 100%;
+}
+.content>ul {
+  position: relative;
+  margin: 40px auto 20px;
+  height: 40px;
+  width: 0;
+}
+.content li {
+  list-style-type: none;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #f5d4a1;
+  border-radius: 50%;
+}
+.encircle0 {
+  animation: a 1s ease-in-out infinite;
+  top: -40px;
+  left: -40px;
+}
+
+.encircle1 {
+  animation: b 1s ease-in-out infinite;
+  top: -40px;
+  left: 0px;
+}
+
+.encircle2 {
+  animation: c 1s ease-in-out infinite;
+  top: -40px;
+  left: 40px;
+}
+
+.encircle3 {
+  animation: d 1s ease-in-out infinite;
+  top: 0px;
+  left: -40px;
+}
+
+.encircle4 {
+  animation: e 1s ease-in-out infinite;
+  top: 0px;
+  left: 0px;
+}
+
+.encircle5 {
+  animation: f 1s ease-in-out infinite;
+  top: 0px;
+  left: 40px;
+}
+
+.encircle6 {
+  animation: g 1s ease-in-out infinite;
+  top: 40px;
+  left: -40px;
+}
+
+.encircle7 {
+  animation: h 1s ease-in-out infinite;
+  top: 40px;
+  left: 0px;
+}
+
+.encircle8 {
+  animation: i 1s ease-in-out infinite;
+  top: 40px;
+  left: 40px;
+}
+
+@keyframes a {
+  50% {
+    top: 0px;
+    left: -40px;
+  }
+  100% {
+    top: 0px;
+    left: -40px;
+  }
+}
+@keyframes b {
+  50% {
+    top: -40px;
+    left: -40px;
+  }
+  100% {
+    top: -40px;
+    left: -40px;
+  }
+}
+@keyframes c {
+  50% {
+    top: -40px;
+    left: 0px;
+  }
+  100% {
+    top: -40px;
+    left: 0px;
+  }
+}
+@keyframes d {
+  50% {
+    top: 40px;
+    left: -40px;
+  }
+  100% {
+    top: 40px;
+    left: -40px;
+  }
+}
+@keyframes f {
+  50% {
+    top: -40px;
+    left: 40px;
+  }
+  100% {
+    top: -40px;
+    left: 40px;
+  }
+}
+@keyframes g {
+  50% {
+    top: 40px;
+    left: 0px;
+  }
+  100% {
+    top: 40px;
+    left: 0px;
+  }
+}
+@keyframes h {
+  50% {
+    top: 40px;
+    left: 40px;
+  }
+  100% {
+    top: 40px;
+    left: 40px;
+  }
+}
+@keyframes i {
+  50% {
+    top: 0px;
+    left: 40px;
+  }
+  100% {
+    top: 0px;
+    left: 40px;
+  }
+}
+

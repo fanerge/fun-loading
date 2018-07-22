@@ -160,7 +160,27 @@ const rotate = [
   }
 ]
 
-
+const encircle = [
+  show,
+  {
+    paramName: 'time',
+    paramDes: '动画周期',
+    paramRequire: 'false',
+    paramDef: 2
+  },
+  {
+    paramName: 'color',
+    paramDes: '动画颜色',
+    paramRequire: 'false',
+    paramDef: 'rgba(16, 142, 233, 1)'
+  },
+  {
+    paramName: 'size',
+    paramDes: '动画大小',
+    paramRequire: 'false',
+    paramDef: '0.75'
+  }
+]
 
 
 export default {
@@ -173,7 +193,8 @@ export default {
   point,
   spinner,
   line,
-  rotate
+  rotate,
+  encircle,
 }
 
 

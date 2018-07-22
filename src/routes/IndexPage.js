@@ -12,7 +12,8 @@ import {
   PointLoading,
   SpinnerLoading,
   LineLoading,
-  RotateLoading
+  RotateLoading,
+  EncircleLoading
 } from '../components/loading';
 import CommonHeader from '../components/commonHeader';
 import ParamsTable from '../components/paramstable';
@@ -98,7 +99,13 @@ class IndexPage extends PureComponent {
     rotateObj: {
       size: '16px',
       show: true
-    }
+    },
+    encircleObj: {
+      color: 'rgba(16, 142, 233, 1)',
+      time: 2,
+      size: 0.75,
+      show: true
+    },
   }
 
   stripeColorChange = (e) => {
@@ -149,7 +156,7 @@ class IndexPage extends PureComponent {
     })
   }
 
-  tranformTimrChange = (val) => {
+  tranformTimeChange = (val) => {
     this.setState({
       transformObj: {
         ...this.state.transformObj,
@@ -275,11 +282,39 @@ class IndexPage extends PureComponent {
     })
   }
 
-  rotateNumberChange = (val) => {
+  rotateSizeChange = (val) => {
     this.setState({
       rotateObj: {
         ...this.state.rotateObj,
         size: val
+      }
+    })
+  }
+
+  encircleSizeChange = (val) => {
+    debugger;
+    this.setState({
+      encircleObj: {
+        ...this.state.encircleObj,
+        size: val
+      }
+    })
+  }
+
+  encircleColorChange = (val) => {
+    this.setState({
+      encircleObj: {
+        ...this.state.encircleObj,
+        color: val
+      }
+    })
+  }
+
+  encircleTimeChange = (val) => {
+    this.setState({
+      encircleObj: {
+        ...this.state.encircleObj,
+        time: val
       }
     })
   }
@@ -298,6 +333,7 @@ class IndexPage extends PureComponent {
     const spinnerObj = this.state.spinnerObj;
     const lineObj = this.state.lineObj;
     const rotateObj = this.state.rotateObj;
+    const encircleObj = this.state.encircleObj;
 
     return (<Layout>
       <CommonHeader index="1"/>
@@ -403,7 +439,7 @@ class IndexPage extends PureComponent {
                   动画周期：
                 </Col>
                 <Col>
-                  <Select defaultValue={1} style={{ width: 120 }} onChange={this.tranformTimrChange}>
+                  <Select defaultValue={1} style={{ width: 120 }} onChange={this.tranformTimeChange}>
                     <Option value={0.5}>0.5s</Option>
                     <Option value={1}>1s</Option>
                     <Option value={2}>2s</Option>
@@ -671,7 +707,7 @@ class IndexPage extends PureComponent {
                     动画大小：
                   </Col>
                   <Col>
-                    <Select defaultValue="16px" style={{ width: 120 }} onChange={this.rotateNumberChange}>
+                    <Select defaultValue="16px" style={{ width: 120 }} onChange={this.rotateSizeChange}>
                       <Option value="12px">12px</Option>
                       <Option value="16px">16px</Option>
                       <Option value="20px">20px</Option>
@@ -685,6 +721,57 @@ class IndexPage extends PureComponent {
                 <h3>组件使用方法</h3>
                 <pre>&lt;RotateLoading show="true" size={rotateObj.size} /&gt;</pre>
                 <ParamsTable items = {paramsConfig.rotate} />
+              </TabPane>
+            </Tabs>
+          </Col>
+          <Col {...itemLayout}>
+            <Tabs defaultActiveKey="1">
+              <TabPane tab={<span><Icon type="area-chart" />演示</span>} key="1">
+                <div>
+                  <EncircleLoading show={encircleObj.show} size={encircleObj.size} color={encircleObj.color} time={encircleObj.time}/>
+                </div>
+                <Row>
+                  <Col span="6">
+                    动画大小：
+                  </Col>
+                  <Col>
+                    <Select defaultValue={0.75} style={{ width: 120 }} onChange={this.encircleSizeChange}>
+                      <Option value={0.5}>0.5</Option>
+                      <Option value={0.75}>0.75</Option>
+                      <Option value={1}>1</Option>
+                      <Option value={1.1}>1.1</Option>
+                    </Select>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col span="6">
+                    动画颜色：
+                  </Col>
+                  <Col>
+                    <Select defaultValue="rgba(16, 142, 233, 1);" style={{ width: 120 }} onChange={this.encircleColorChange}>
+                      <Option value="rgba(16, 142, 233, 1)">rgba(16, 142, 233, 1)</Option>
+                      <Option value="yellowgreen">yellowgreen</Option>
+                      <Option value="#65f8ce">#65f8ce</Option>
+                    </Select>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col span="6">
+                    动画周期：
+                  </Col>
+                  <Col>
+                    <Select defaultValue={1} style={{ width: 120 }} onChange={this.encircleTimeChange}>
+                      <Option value={0.5}>0.5s</Option>
+                      <Option value={1}>1s</Option>
+                      <Option value={2}>2s</Option>
+                    </Select>
+                  </Col>
+                </Row>
+              </TabPane>
+              <TabPane tab={<span><Icon type="setting" />说明</span>} key="2">
+                <h3>组件使用方法</h3>
+                <pre>&lt;EncircleLoading show="true" size={encircleObj.size} color={encircleObj.color} time={encircleObj.time}} /&gt;</pre>
+                <ParamsTable items = {paramsConfig.encircle} />
               </TabPane>
             </Tabs>
           </Col>
