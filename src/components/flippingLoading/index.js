@@ -5,10 +5,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './index.css';
 
-const TransformLoading = (props) => {
+const FlippingLoading = (props) => {
   const isShow = props.show;
-  const time = `${props.time}s` || '1s';
-  const color = props.color || 'rgba(16, 142, 233, 1)';
+  const time = `${props.time}s`;
+  const color = props.color;
 
   return (
     <div className={styles.container}
@@ -20,9 +20,15 @@ const TransformLoading = (props) => {
   );
 };
 
-TransformLoading.propTypes = {
+FlippingLoading.propTypes = {
   time: PropTypes.number,
+  color: PropTypes.string,
   show: PropTypes.bool.isRequired
 };
 
-export default TransformLoading;
+FlippingLoading.defaultProps = {
+  time: 1,
+  color:  'rgba(16, 142, 233, 1)'
+};
+
+export default FlippingLoading;

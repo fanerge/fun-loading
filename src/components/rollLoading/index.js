@@ -5,11 +5,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './index.css';
 
-const CircleLoading = (props) => {
+const RollLoading = (props) => {
   const isShow = props.show;
-  const time = `${props.time}s` || '2s';
+  const time = `${props.time}s`;
   const delay = `-${(props.time/2).toFixed(2)}s`;
-  const color = props.color || 'rgba(16, 142, 233, 1)';
+  const color = props.color;
 
   return (
     <div className={styles.container}
@@ -24,9 +24,15 @@ const CircleLoading = (props) => {
   );
 };
 
-CircleLoading.propTypes = {
+RollLoading.propTypes = {
   time: PropTypes.number,
+  color: PropTypes.string,
   show: PropTypes.bool.isRequired
 };
 
-export default CircleLoading;
+RollLoading.defatultProps = {
+  time: 1,
+  color: 'rgba(16, 142, 233, 1)'
+};
+
+export default RollLoading;

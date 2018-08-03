@@ -111,14 +111,76 @@ const point = [
   }
 ]
 
+// spinner
+const spinner = [
+  show,
+  {
+    paramName: 'time',
+    paramDes: '动画周期',
+    paramRequire: 'false',
+    paramDef: 1.2
+  },
+  {
+    paramName: 'color',
+    paramDes: '动画颜色',
+    paramRequire: 'false',
+    paramDef: 'rgba(16, 142, 233, 1)'
+  },
+  {
+    paramName: 'size',
+    paramDes: '动画大小',
+    paramRequire: 'false',
+    paramDef: '20px'
+  }
+]
 
+const line = [
+  show,
+  {
+    paramName: 'time',
+    paramDes: '动画周期',
+    paramRequire: 'false',
+    paramDef: 2
+  },
+  {
+    paramName: 'number',
+    paramDes: '线条数量',
+    paramRequire: 'false',
+    paramDef: '5'
+  }
+]
 
+const rotate = [
+  show,
+  {
+    paramName: 'number',
+    paramDes: '动画大小',
+    paramRequire: 'false',
+    paramDef: '16px'
+  }
+]
 
-
-
-
-
-
+const encircle = [
+  show,
+  {
+    paramName: 'time',
+    paramDes: '动画周期',
+    paramRequire: 'false',
+    paramDef: 2
+  },
+  {
+    paramName: 'color',
+    paramDes: '动画颜色',
+    paramRequire: 'false',
+    paramDef: 'rgba(16, 142, 233, 1)'
+  },
+  {
+    paramName: 'size',
+    paramDes: '动画大小',
+    paramRequire: 'false',
+    paramDef: '0.75'
+  }
+]
 
 
 export default {
@@ -128,7 +190,11 @@ export default {
   flipping,
   circle,
   roll,
-  point
+  point,
+  spinner,
+  line,
+  rotate,
+  encircle,
 }
 
 

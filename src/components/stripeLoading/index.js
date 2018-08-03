@@ -7,9 +7,9 @@ import styles from './index.css';
 
 const StripeLoading = (props) => {
   // 矩形颜色
-  const bgColor = props.color || 'rgba(16, 142, 233, 1)';
+  const bgColor = props.color;
   // 矩形数量
-  const number = props.number || 5;
+  const number = props.number;
   // 动画周期
   const durationTime = 1.2 * number / 5;
   // 动画是否显示执行
@@ -35,5 +35,10 @@ StripeLoading.propTypes = {
   number: PropTypes.oneOf([3, 4, 5, 6, 7, 8, 9, 10]),
   show: PropTypes.bool.isRequired
 };
+
+StripeLoading.defaultProps = {
+  color: 'rgba(16, 142, 233, 1)',
+  nuber: 6
+}
 
 export default StripeLoading;

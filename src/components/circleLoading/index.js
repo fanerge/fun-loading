@@ -7,9 +7,9 @@ import styles from './index.css';
 
 const CircleLoading = (props) => {
   const isShow = props.show;
-  const time = `${props.time}s` || '2s';
+  const time = `${props.time}s`;
   const delay = `-${(props.time/2).toFixed(2)}s`;
-  const color = props.color || 'rgba(16, 142, 233, 1)';
+  const color = props.color;
 
   return (
     <div className={styles.container}
@@ -26,7 +26,13 @@ const CircleLoading = (props) => {
 
 CircleLoading.propTypes = {
   time: PropTypes.number,
+  color: PropTypes.string,
   show: PropTypes.bool.isRequired
+};
+
+CircleLoading.defaultProps = {
+  time: 2,
+  color: 'rgba(16, 142, 233, 1)'
 };
 
 export default CircleLoading;

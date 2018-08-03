@@ -1,0 +1,9 @@
+.header {
+  background: #fff;
+  margin-bottom: 3px;
+}
+.title {
+  float: left;
+  display: inline-block;
+  font-size: 16px;
+}

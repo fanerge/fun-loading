@@ -5,25 +5,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './index.css';
 
-const TransformLoading = ({show, time}) => {
+const RotateLoading = ({show, size}) => {
 
   return (
     <div className={styles.container}
          style={{'display': show ? 'block' : 'none' }}>
-      <div className={styles.content}>
-        <p className={styles.transform} style={{animationDuration: `${time}s`}}></p>
+      <div className={styles.content} style={{fontSize: size}}>
+          <div className={styles.loader}></div>
       </div>
     </div>
   );
 };
 
-TransformLoading.propTypes = {
-  time: PropTypes.number,
+RotateLoading.propTypes = {
+  size: PropTypes.string,
   show: PropTypes.bool.isRequired
 };
 
-TransformLoading.defaultProps = {
-  time: 1
-}
+RotateLoading.defaultProps = {
+  size: '16px'
+};
 
-export default TransformLoading;
+export default RotateLoading;
