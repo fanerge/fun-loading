@@ -1,6 +1,7 @@
 # fun-loading
 ### 基于React的Loading组件库。
 访问地址[fun-loading](https://fanerge.github.io/fun-loading/dist/index.html#/)
+<br />
 [更好的单标签实现](https://github.com/lukehaas/css-loaders)
 # 开始使用：
 1.  git clone https://github.com/fanerge/fun-loading.git
